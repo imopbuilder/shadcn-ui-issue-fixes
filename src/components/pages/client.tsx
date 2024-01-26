@@ -1,15 +1,74 @@
 'use client';
 
-import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
-import { useState } from 'react';
-
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Label } from '@/components/ui/label';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
+import { SearchIcon } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 import { Calendar } from '../ui/calendar';
+import { Checkbox } from '../ui/checkbox';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '../ui/navigation-menu';
 import { Textarea } from '../ui/textarea';
+
+export function PopoverDemo() {
+	const [open, setOpen] = useState(false);
+
+	return (
+		<Popover open={open} onOpenChange={setOpen} modal={true}>
+			<PopoverTrigger asChild>
+				<Button className='mb-4'>
+					<SearchIcon /> Status
+				</Button>
+			</PopoverTrigger>
+			<PopoverContent className='bg-primary'>
+				<div className='flex flex-col gap-5'>
+					<div>
+						<Checkbox id='pending' className='bg-white' />
+						<label htmlFor='pending' className='text-background'>
+							Pendente
+						</label>
+					</div>
+					<div>
+						<Checkbox id='overdue' className='bg-white' />
+						<label htmlFor='overdue' className='text-background'>
+							Vencido
+						</label>
+					</div>
+					<div>
+						<Checkbox id='paid' className='bg-white' />
+						<Label htmlFor='paid' className='text-background'>
+							Vencido
+						</Label>
+					</div>
+					<Button variant='secondary' className='mt-2' onClick={() => console.log('click')}>
+						Aplicar
+					</Button>
+				</div>
+			</PopoverContent>
+		</Popover>
+	);
+}
+
+export function DialogDemo() {
+	return (
+		<Dialog>
+			<DialogTrigger>Open</DialogTrigger>
+			<DialogContent onCloseAutoFocus={() => console.log('closed')}>
+				<DialogHeader>
+					<DialogTitle>Are you absolutely sure?</DialogTitle>
+					<DialogDescription>
+						This action cannot be undone. This will permanently delete your account and remove your data from our servers.
+					</DialogDescription>
+				</DialogHeader>
+			</DialogContent>
+		</Dialog>
+	);
+}
 
 type Checked = DropdownMenuCheckboxItemProps['checked'];
 
