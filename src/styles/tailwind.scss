@@ -64,6 +64,10 @@
 		--input: 0 0% 14.9%;
 		--ring: 0 0% 83.1%;
 	}
+
+	.body {
+		overflow-y: scroll !important;
+	}
 }
 
 @layer base {
