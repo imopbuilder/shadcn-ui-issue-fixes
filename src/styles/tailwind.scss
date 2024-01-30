@@ -68,6 +68,10 @@
 	.body {
 		overflow-y: scroll !important;
 	}
+
+	body[style] {
+		position: static !important;
+	}
 }
 
 @layer base {

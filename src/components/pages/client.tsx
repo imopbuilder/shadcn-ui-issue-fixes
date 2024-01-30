@@ -152,8 +152,10 @@ export function PopoverDemo() {
 export function DialogDemo() {
 	return (
 		<Dialog>
-			<DialogTrigger>Open</DialogTrigger>
-			<DialogContent onCloseAutoFocus={() => console.log('closed')}>
+			<DialogTrigger asChild>
+				<Button>Open</Button>
+			</DialogTrigger>
+			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Are you absolutely sure?</DialogTitle>
 					<DialogDescription>
