@@ -54,7 +54,15 @@ export function SelectDemo() {
 				<SelectTrigger className='w-[180px]'>
 					<SelectValue placeholder='Select a fruit' />
 				</SelectTrigger>
-				<SelectContent side='top'>
+				<SelectContent
+					side='top'
+					ref={(ref) => {
+						if (!ref) return;
+						ref.ontouchstart = (e) => {
+							e.preventDefault();
+						};
+					}}
+				>
 					<SelectGroup>
 						<SelectLabel>Fruits</SelectLabel>
 						<SelectItem value='apple'>Apple</SelectItem>
