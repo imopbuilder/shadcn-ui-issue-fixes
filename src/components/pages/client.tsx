@@ -17,7 +17,7 @@ import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, Dr
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Label } from '@/components/ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
 import { SearchIcon } from 'lucide-react';
 import Link from 'next/link';
@@ -27,62 +27,102 @@ import { Checkbox } from '../ui/checkbox';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '../ui/navigation-menu';
 import { Textarea } from '../ui/textarea';
 
+export function SelectDemo() {
+	return (
+		<div>
+			<ul>
+				<li>
+					<a href='https://github.com/shadcn-ui/ui'>Shadcn/ui</a>
+				</li>
+				<li>
+					<a href='https://github.com/shadcn-ui/ui'>Shadcn/ui</a>
+				</li>
+				<li>
+					<a href='https://github.com/shadcn-ui/ui'>Shadcn/ui</a>
+				</li>
+				<li>
+					<a href='https://github.com/shadcn-ui/ui'>Shadcn/ui</a>
+				</li>
+				<li>
+					<a href='https://github.com/shadcn-ui/ui'>Shadcn/ui</a>
+				</li>
+				<li>
+					<a href='https://github.com/shadcn-ui/ui'>Shadcn/ui</a>
+				</li>
+			</ul>
+			<Select>
+				<SelectTrigger className='w-[180px]'>
+					<SelectValue placeholder='Select a fruit' />
+				</SelectTrigger>
+				<SelectContent side='top'>
+					<SelectGroup>
+						<SelectLabel>Fruits</SelectLabel>
+						<SelectItem value='apple'>Apple</SelectItem>
+						<SelectItem value='banana'>Banana</SelectItem>
+						<SelectItem value='blueberry'>Blueberry</SelectItem>
+						<SelectItem value='grapes'>Grapes</SelectItem>
+						<SelectItem value='pineapple'>Pineapple</SelectItem>
+					</SelectGroup>
+				</SelectContent>
+			</Select>
+		</div>
+	);
+}
+
 export function DrawerDemo() {
 	return (
 		<Drawer direction='right'>
 			<DrawerTrigger asChild>
 				<Button variant='outline'>Open Drawer</Button>
 			</DrawerTrigger>
-			<DrawerContent className='h-screen top-0 right-0 left-auto mt-0 w-[500px] rounded-none'>
-				<ScrollArea className='h-screen'>
-					<div className='mx-auto w-full p-5'>
-						<DrawerHeader>
-							<DrawerTitle>Theme Color Options</DrawerTitle>
-							<DrawerDescription>
-								* Selected option will be applied to all layout elements (navbar, toolbar, etc.). You can also create your own theme options and color
-								schemes.
-							</DrawerDescription>
-						</DrawerHeader>
-						<div className='p-4 pb-0 space-y-4'>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 1</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 2</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 3</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 4</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 4</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 5</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 6</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 7</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 8</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 9</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 10</p>
-							</div>
-							<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
-								<p>Image 11</p>
-							</div>
+			<DrawerContent className='top-0 right-0 left-auto mt-0 w-[500px] rounded-none'>
+				<div className='mx-auto w-full p-5 overflow-y-scroll overflow-x-hidden h-screen'>
+					<DrawerHeader>
+						<DrawerTitle>Theme Color Options</DrawerTitle>
+						<DrawerDescription>
+							* Selected option will be applied to all layout elements (navbar, toolbar, etc.). You can also create your own theme options and color
+							schemes.
+						</DrawerDescription>
+					</DrawerHeader>
+					<div className='p-4 pb-0 space-y-4'>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 1</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 2</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 3</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 4</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 4</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 5</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 6</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 7</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 8</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 9</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 10</p>
+						</div>
+						<div className='bg-muted flex items-center justify-center rounded-lg h-32'>
+							<p>Image 11</p>
 						</div>
 					</div>
-				</ScrollArea>
+				</div>
 			</DrawerContent>
 		</Drawer>
 	);
